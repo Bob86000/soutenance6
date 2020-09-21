@@ -7,12 +7,23 @@ const sauceRoutes = require('./routes/sauce');
 const userRoutes = require('./routes/user');
 
 
+mongoose.connect('mongodb+srv://Fgt158-cc2:Fgt158-cc2@cluster0.uiu95.mongodb.net/Cluster0?retryWrites=true&w=majority',
+  { useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useCreateIndex:true, })
+  .then(() => console.log('Connexion à MongoDB réussie !'))
+  .catch(() => console.log('Connexion à MongoDB échouée !'));
+
+/* 
 mongoose.connect('mongodb+srv://Fgt158-cc:Fgt158-cc@cluster0.uiu95.mongodb.net/Cluster0?retryWrites=true&w=majority',
   { useNewUrlParser: true,
     useUnifiedTopology: true,
     useCreateIndex:true, })
   .then(() => console.log('Connexion à MongoDB réussie !'))
   .catch(() => console.log('Connexion à MongoDB échouée !'));
+
+
+*/  
 
 
 const app = express();
