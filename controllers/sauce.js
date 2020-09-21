@@ -32,29 +32,20 @@ exports.modifySauceLikes = (req, res, next) => {
       let findUsersLiked = usersLiked.find((user) => user == req.body.userId);
       let findUsersDisliked = usersDisliked.find((user) => user == req.body.userId);
       if (req.body.like == 1 && findUsersLiked === undefined) {
-        console.log('like activé');
-        console.log(newUsersId);
         sauce.likes++;
         let newLikes = sauce.likes;
         usersLiked.push(newUsersId);
         let newUsersLiked = usersLiked;
-        console.log(newUsersLiked);
         Sauce.updateOne({ _id: req.params.id }, { likes : newLikes, usersLiked : newUsersLiked })
         .then(() => res.status(200).json({ message: "Like ajouté!" }))
         .catch((error) => res.status(400).json({ error })); 
       }
       if (req.body.like == 0) {
           if (findUsersLiked !== undefined) {
-            console.log(findUsersLiked);
           sauce.likes--;
-          console.log(sauce.likes)
           let newLikes = sauce.likes;
-          console.log(newLikes);
-          console.log(usersLiked);
           let indexToDelete = usersLiked.indexOf(req.body.userId);
-          console.log(indexToDelete);
           usersLiked.splice(indexToDelete,1);
-          console.log(usersLiked);
           let newUsersLiked = usersLiked;
           Sauce.updateOne({ _id: req.params.id }, { likes : newLikes, usersLiked : newUsersLiked })
           .then(() => res.status(200).json({ message: "Like annulé !" }))
@@ -72,7 +63,6 @@ exports.modifySauceLikes = (req, res, next) => {
             }
         }
       if (req.body.like == -1 && findUsersDisliked === undefined) {
-        console.log('dislike activé');
         sauce.dislikes++;
         let newDislike = sauce.dislikes;
         usersDisliked.push(newUsersId);

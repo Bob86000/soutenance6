@@ -17,16 +17,10 @@ exports.signup = (req, res, next) => {
       .then(() => res.status(201).json({ message : 'utilisateur créer !' }))
       .catch(error => {
         res.status(400).json({ error });
-        console.log('echec2')
-        console.log(hash);
-        console.log(req.body.email)
-        console.log(user.save);
-        console.log(req.body);
       })
   })
   .catch(error => {
     res.status(500).json({ error });
-    console.log('echec');
   });
 };
 
