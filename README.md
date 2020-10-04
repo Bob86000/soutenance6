@@ -2,7 +2,7 @@ Pour rendre le serveur et la base de donnée MongoDB opérationnelle:
 
 1# npm install puis ensuite nodemon server
 
-2# Remplacer .env-exemple par .env
+2# Renommer le fichier ".env-exemple" en ".env"
 
 3# Consulter le fichier code_API.txt et suivre les instructions.
 
