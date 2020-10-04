@@ -1,9 +1,10 @@
-Pour rendre la base de donné MongoDB opérationnelle remplacer les champs suivant par leur valeurs correspondantes
+Pour rendre le serveur et la base de donnée MongoDB opérationnelle:
 
+1# npm install puis ensuite nodemon server
 
-1# Remplacer .env-exemple par .env
+2# Remplacer .env-exemple par .env
 
-2# Consulter le fichier code_API.txt et suivre les instructions.
+3# Consulter le fichier code_API.txt et suivre les instructions.
 
 Ce repository constitue la partie back-end, à l'intérieur du dossier back end. 
 
