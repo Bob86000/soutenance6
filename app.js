@@ -5,7 +5,7 @@ const dotenv = require('dotenv').config();
 const path = require('path');
 var helmet = require('helmet');
 const limiter = require('./middleware/rate-limiter');
-const mongoSanitize = require('express-mongo-sanitize');// ne marche pas
+const mongoSanitize = require('express-mongo-sanitize');
 var hpp = require('hpp');
 
 const sauceRoutes = require('./routes/sauce');
@@ -34,9 +34,10 @@ app.use(helmet());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
+app.use(mongoSanitize());
 app.use(hpp());
 
-app.use(mongoSanitize());
+
 app.use('/images', express.static(path.join(__dirname, 'images')));
 
 app.use('/api/sauces', sauceRoutes);
